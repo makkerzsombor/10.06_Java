@@ -15,9 +15,7 @@ public final class Veletlen {
     private static final List<String> vezNevek = feltolt("files/veznev.txt");
     private static final List<String> ferfiKerNevek = feltolt("files/ferfikernev.txt");
     private static final List<String> noiKerNevek = feltolt("files/noikernev.txt");
-
     private static final List<String> sportag = feltolt("files/sportag.txt");
-
     private static final List<String> egyesulet = feltolt("files/egyesulet.txt");
 
 
@@ -76,33 +74,37 @@ public final class Veletlen {
         return velVezetek() + " " + velKeresztNev(nem);
     }
 
-    public static String velDatum(int ev1, int ev2){
+    public static String velDatum(int ev1, int ev2) {
         int ev = rnd.nextInt(ev2 - ev1 + 1) + ev1;
         int honap = rnd.nextInt(12 - 1 + 1) + 1;
-        int nap = 0 ;
-        if (honap == 2){
+        int nap = 0;
+        if (honap == 2) {
             nap = rnd.nextInt(28 - 1 + 1) + 1;
-        }else if (honap == 8){
+        } else if (honap == 8) {
             nap = rnd.nextInt(31 - 1 + 1) + 1;
-        }else if (honap % 2 == 0) {
+        } else if (honap % 2 == 0) {
             nap = rnd.nextInt(30 - 1 + 1) + 1;
-        }else {
+        } else {
             nap = rnd.nextInt(31 - 1 + 1) + 1;
         }
-        return ev+"-"+honap+"-"+nap;
+        return ev + "-" + honap + "-" + nap;
     }
 
-    public static String velEmail(String nev){
-        String email = nev + (rnd.nextInt(100 - 1 + 1) + 1) + "@gmail.com";
-        return email;
+    public static String velEmail(String nev) {
+        nev = nev.replaceAll("^\\p{ASCII}]", "");
+        String[] email = nev.toLowerCase().split(" ");
+        return email[0] + email[1] + (rnd.nextInt(99 - 1 + 1) + 1) + "@gmail.com";
     }
+
     public static String velMobil() {
-        return " +36 (30) " + velEgesz(0,9) + velEgesz(0,9)+ velEgesz(0,9) + "-" + velEgesz(0,9) + velEgesz(0,9) + "-" + velEgesz(0,9) + velEgesz(0,9);
+        return " +36 (30) " + velEgesz(0, 9) + velEgesz(0, 9) + velEgesz(0, 9) + "-" + velEgesz(0, 9) + velEgesz(0, 9) + "-" + velEgesz(0, 9) + velEgesz(0, 9);
     }
-    public static String velSportag(){
+
+    public static String velSportag() {
         return sportag.get(rnd.nextInt(sportag.size()));
     }
-    public static String velSportegyesulet(){
+
+    public static String velSportegyesulet() {
         return egyesulet.get(rnd.nextInt(egyesulet.size()));
     }
 }
