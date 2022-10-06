@@ -21,5 +21,19 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velTeljesNev(true));
         }
+        //mobil
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Veletlen.velMobil());
+        }
+        //sportág
+        System.out.println("Sportágak:");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Veletlen.velSportag());
+        }
+        //sportegyesület
+        System.out.println("Sportegyesület:");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Veletlen.velSportegyesulet());
+        }
     }
 }

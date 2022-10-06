@@ -8,64 +8,89 @@ import java.util.Random;
 import java.util.Scanner;
 
 public final class Veletlen {
-    private Veletlen(){}
+    private Veletlen() {
+    }
 
     private static final Random rnd = new Random();
     private static final List<String> vezNevek = feltolt("files/veznev.txt");
     private static final List<String> ferfiKerNevek = feltolt("files/ferfikernev.txt");
     private static final List<String> noiKerNevek = feltolt("files/noikernev.txt");
 
+    private static final List<String> sportag = feltolt("files/sportag.txt");
+
+    private static final List<String> egyesulet = feltolt("files/egyesulet.txt");
+
 
     private static List<String> feltolt(String fajlnev) {
         List<String> lista = new ArrayList<>();
-        try{
+        try {
             Scanner file = new Scanner(new File(fajlnev));
-            while(file.hasNext()){
+            while (file.hasNext()) {
                 String sor = file.nextLine();
                 lista.add(sor);
             }
             file.close();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return lista;
     }
-    public static int velEgesz(int min, int max){
+
+    public static int velEgesz(int min, int max) {
         return rnd.nextInt(max - min + 1) + min;
     }
 
-    public static char Velkara(char min, char max){
+    public static char Velkara(char min, char max) {
         return (char) velEgesz(min, max);
     }
 
-    public static String velVezetek(){
+    public static String velVezetek() {
         return vezNevek.get(rnd.nextInt(vezNevek.size()));
     }
 
     /**
      * Véletlen magyar keresztnév generálása
+     *
      * @param nem A generált név nem. Férfi esetén true, Nő esetén false.
      * @return
      */
-    public static String velKeresztNev(boolean nem){
+    public static String velKeresztNev(boolean nem) {
         String keresztNev = null;
-        if (nem){
+        if (nem) {
             keresztNev = velFerfiKeresztNev();
-        }else {
+        } else {
             keresztNev = velNoiKeresztNev();
         }
         return keresztNev;
     }
 
-    private static String velFerfiKeresztNev(){
+    private static String velFerfiKeresztNev() {
         return ferfiKerNevek.get(rnd.nextInt(ferfiKerNevek.size()));
     }
 
-    private static String velNoiKeresztNev(){
+    private static String velNoiKeresztNev() {
         return noiKerNevek.get(rnd.nextInt(ferfiKerNevek.size()));
     }
 
-    public static String velTeljesNev(boolean nem){
+    public static String velTeljesNev(boolean nem) {
         return velVezetek() + " " + velKeresztNev(nem);
+    }
+
+    //public static String velDatum(int ev1, int ev2){
+    //    return ;
+    //}
+
+    //public static String velEmail(String nev){
+    //
+    //    return ;
+    //}
+    public static String velMobil() {
+        return " +36 (30) " + (rnd.nextInt(999 - 111 + 1) + 111) + "-" + (rnd.nextInt(99 - 11 + 1) + 11) + "-" + (rnd.nextInt(99 - 11 + 1) + 11);
+    }
+    public static String velSportag(){
+        return sportag.get(rnd.nextInt(sportag.size()));
+    }
+    public static String velSportegyesulet(){
+        return egyesulet.get(rnd.nextInt(egyesulet.size()));
     }
 }
