@@ -97,7 +97,7 @@ public final class Veletlen {
     //    return ;
     //}
     public static String velMobil() {
-        return " +36 (30) " + (rnd.nextInt(999 - 111 + 1) + 111) + "-" + (rnd.nextInt(99 - 11 + 1) + 11) + "-" + (rnd.nextInt(99 - 11 + 1) + 11);
+        return " +36 (30) " + velEgesz(0,9) + velEgesz(0,9)+ velEgesz(0,9) + "-" + velEgesz(0,9) + velEgesz(0,9) + "-" + velEgesz(0,9) + velEgesz(0,9);
     }
     public static String velSportag(){
         return sportag.get(rnd.nextInt(sportag.size()));

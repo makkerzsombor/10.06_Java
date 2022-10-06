@@ -21,10 +21,12 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velTeljesNev(true));
         }
-        //
+        // dátum
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velDatum(2021, 2022));
         }
+        //email
+
         //mobil
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velMobil());
