@@ -26,7 +26,9 @@ public class Main {
             System.out.println(Veletlen.velDatum(2021, 2022));
         }
         //email
-
+        for (int i = 0; i < 2; i++) {
+            System.out.println(Veletlen.velEmail(Veletlen.velTeljesNev(false)));
+        }
         //mobil
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velMobil());

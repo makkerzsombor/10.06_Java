@@ -92,10 +92,10 @@ public final class Veletlen {
         return ev+"-"+honap+"-"+nap;
     }
 
-    //public static String velEmail(String nev){
-    //
-    //    return ;
-    //}
+    public static String velEmail(String nev){
+        String email = nev + (rnd.nextInt(100 - 1 + 1) + 1) + "@gmail.com";
+        return email;
+    }
     public static String velMobil() {
         return " +36 (30) " + velEgesz(0,9) + velEgesz(0,9)+ velEgesz(0,9) + "-" + velEgesz(0,9) + velEgesz(0,9) + "-" + velEgesz(0,9) + velEgesz(0,9);
     }
