@@ -76,9 +76,21 @@ public final class Veletlen {
         return velVezetek() + " " + velKeresztNev(nem);
     }
 
-    //public static String velDatum(int ev1, int ev2){
-    //    return ;
-    //}
+    public static String velDatum(int ev1, int ev2){
+        int ev = rnd.nextInt(ev2 - ev1 + 1) + ev1;
+        int honap = rnd.nextInt(12 - 1 + 1) + 1;
+        int nap = 0 ;
+        if (honap == 2){
+            nap = rnd.nextInt(28 - 1 + 1) + 1;
+        }else if (honap == 8){
+            nap = rnd.nextInt(31 - 1 + 1) + 1;
+        }else if (honap % 2 == 0) {
+            nap = rnd.nextInt(30 - 1 + 1) + 1;
+        }else {
+            nap = rnd.nextInt(31 - 1 + 1) + 1;
+        }
+        return ev+"-"+honap+"-"+nap;
+    }
 
     //public static String velEmail(String nev){
     //
